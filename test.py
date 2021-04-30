@@ -101,3 +101,30 @@ order_comparison("customer-orders.txt")
 #           f"expected ${customer6_expected:.2f}"
 #           )
 
+#define function to call for each day
+def aggregate_produce(day, file):
+
+    #print the day for log
+    print(f"Day {day} ")
+
+    #open file to make readable
+    the_file = open(file)
+
+    #start loop to iteraete over each line, format it, and pull out necessary info
+    for line in the_file:
+        line = line.rstrip()
+        words = line.split('|')
+
+        melon = words[0]
+        count = words[1]
+        amount = words[2]
+
+        print(f"Delivered {count} {melon}s for total of ${amount}")
+
+    the_file.close()
+
+#call function for each day and each file
+aggregate_produce(1, "um-deliveries-20140519.txt")
+aggregate_produce(2, "um-deliveries-20140520.txt")
+aggregate_produce(3, "um-deliveries-20140521.txt")
+    
