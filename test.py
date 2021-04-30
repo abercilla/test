@@ -128,3 +128,22 @@ aggregate_produce(1, "um-deliveries-20140519.txt")
 aggregate_produce(2, "um-deliveries-20140520.txt")
 aggregate_produce(3, "um-deliveries-20140521.txt")
     
+
+    #prompt to open the "um-server-01.txt" file
+log_file = open("um-server-01.txt")
+
+#start a function sales_reports
+def sales_reports(log_file):
+    #iterate over each line of the file
+    for line in log_file:
+        #strip white space off the end of each line
+        line = line.rstrip()
+    #look for the first 3 characters of each line and set to variable day
+        day = line[0:3]
+        #if variable reads "Mon"
+        if day == "Mon":
+            #print that line out 
+            print(line)
+
+#return all lines that start with "Mon"
+sales_reports(log_file)
